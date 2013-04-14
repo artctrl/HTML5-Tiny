@@ -9,19 +9,44 @@ background-color:#b0c4de;
 </style>
 <h3 style="font-family:monospace;color:#b7a676;font-size:24px;text-align:center">Happy Kabuki World</h3>
 
-<div style="color:#1c212e">
+<div style="color:#67151b">
   <h3>This is a heading in a div element</h3>
   <p>This is some text in a div element.</p>
 </div>
 
 
 
-<canvas id="myCanvas" width="256" height="128" style="border:1px solid #c3c3c3;">
+<canvas id="game" width="256" height="128" style="border:1px solid #c3c3c3;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 <script>
+function canvasMove(e) {
 
-var c=document.getElementById("myCanvas");
+    var canvas = document.getElementById('game');
+
+    if(canvas.getContext) {
+        var draw = canvas.getContext('2d');
+
+        draw.fillStyle = '#536188';
+        draw.fillRect('100,12,5,12');    
+
+        var code;
+
+        if (!e) var e = window.event;
+        if (e.keyCode) code = e.keyCode;
+        else if (e.which) code = e.which;
+        var character = String.fromCharCode(code);
+
+        if(character == '&') { draw.translate(0, -10); }
+        if(character == '(') { draw.translate(0, 10); }
+        if(character == '%') { draw.translate(-10, 0); }
+        if(character == "'") { draw.translate(10, 0); }
+    }
+}
+</script>
+<script>
+
+var c=document.getElementById("game");
 
 var ctx=c.getContext("2d");
 ctx.fillStyle="#536188";

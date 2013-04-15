@@ -1,12 +1,11 @@
-Dear Emma Rowley
+Hello.
+It was exciting to see a job advertisted. This role fits perfectly with my skills and background.
+Experienced with 3d engines since childhood. I've used the Unity Engine for over a year. 
+High skill in level design, UI, lighting and camera composition.
+and lighting setup. Ability to model, texture, and animate in an 3d enviromoent. Create and explore worlds.
+Knowlegage of Javascript, c#, and GIT. 
 
-It was exciting to see a job advertisted from you for an Unity specalist. I consider myself a tech 
-artist and this role fits perfectly for my skills and background.
-Experienced with 3d engines since I was a child (Thank you Source) I've used the Unity Engline for over 
-a year now.  Partically interest in camera composition and lighting setup. 
-Ability to model, texture, animate. These assets are taken into Unity to develop the scene and UI
-Knowlegage of Javascript, c#, and Python. 
-It's the complete package. Currently looking for work so perfect for the job. 
-
+Thank you,
+William Mckee
 
 

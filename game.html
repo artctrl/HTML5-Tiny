@@ -19,31 +19,13 @@ background-color:#b0c4de;
 <canvas id="game" width="256" height="128" style="border:1px solid #c3c3c3;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
+<!DOCTYPE html>
+
 <script>
-function canvasMove(e) {
+object.onmouseover=function(){SomeJavaScriptCode};
+</body>
 
-    var canvas = document.getElementById('game');
 
-    if(canvas.getContext) {
-        var draw = canvas.getContext('2d');
-
-        draw.fillStyle = '#536188';
-        draw.fillRect('100,12,5,12');    
-
-        var code;
-
-        if (!e) var e = window.event;
-        if (e.keyCode) code = e.keyCode;
-        else if (e.which) code = e.which;
-        var character = String.fromCharCode(code);
-
-        if(character == '&') { draw.translate(0, -10); }
-        if(character == '(') { draw.translate(0, 10); }
-        if(character == '%') { draw.translate(-10, 0); }
-        if(character == "'") { draw.translate(10, 0); }
-    }
-}
-</script>
 <script>
 
 var c=document.getElementById("game");
@@ -90,7 +72,14 @@ ctx.fillRect(0,20,256,8);
 
 <textarea rows="4" cols="50">
 Enjoy the game.
-</textarea>
 
+
+</textarea>
+<a href="https://twitter.com/intent/tweet?button_hashtag=brobeur&text=Brobeur%20Stuidos%20-%20Releasing%20games" class="twitter-hashtag-button" data-related="auxjan">Tweet #brobeur</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+<a href="https://twitter.com/intent/tweet?screen_name=brobeur&text=Visual%20_%2F_%20Story%20_%2F_%20Sound%20_%2F_%20Control%20_%2F_" class="twitter-mention-button" data-related="auxjan">Tweet to @brobeur</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </body>
 </html>

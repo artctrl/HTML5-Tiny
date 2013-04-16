@@ -6,10 +6,10 @@ body
 {
 background-color:#b0c4de;
 }
-@import url(http://fonts.googleapis.com/css?family=Geo);
+@import url(http://fonts.googleapis.com/css?family=Monotype Century);
 </style>
-<h3 style="font-family:monospace;color:#b7a676;font-size:24px;text-align:center">Happy Kabuki World</h3>
-
+<h3 style="font-family:monospace;color:#b7a676;font-size:24px;text-align:center">Prodo</h3>
+<img src="load14.jpg" width="199" height="100">
 <div style="color:#1c212e">
   <h3>This is a heading in a div element</h3>
   <p>Click to move. Space to talk.</p>
@@ -17,7 +17,7 @@ background-color:#b0c4de;
 
 
 
-<canvas id="myCanvas" width="1280" height="720" style="border:1px solid #c3c3c3;">
+<canvas id="myCanvas" width="480" height="320" style="border:1px solid #c3c3c3;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 <script type="text/javascript" src="http://code.createjs.com/createjs-2013.02.12.min.js"></script>
@@ -89,28 +89,34 @@ Your browser does not support the HTML5 canvas tag.
 
         var ctx=new createjs.Shape();
 
+		
+myimage = new Image();
+myimage.onload = function() {
+                     ctx.drawImage(myimage, 0, 150);
+                 }
+myimage.src = 'http://freshfigure.com/art/wp-content/uploads/2013/03/DSC_5213-edit-1024x682.jpg';
 ctx.graphics.
 
+//topsky
 beginFill("#536188").
-rect(0,0,480,24).
+rect(0,0,480,128).
 
+//botsky
 beginFill("#181032").
-rect(0,80,480,320).
+rect(0,128,480,320).
+
+//box
+beginFill("#67151b").
+rect(130,270,256,32).
 
 beginFill("#67151b").
-rect(0,10,64,4).
-
-beginFill("#67151b").
-rect(64,8,246,300).
-
-beginFill("#67151b").
-rect(100,12,5,12).
+rect(130,270,256,32).
 
 beginFill("#1c212e").
-rect(0,12,480,50).
+rect(120,150,100,50).
 
 beginFill("#c8d991").
-rect(0,20,256,8);
+rect(0,100,256,8);
 
     stage.addChild(ctx);
 
@@ -195,17 +201,17 @@ rect(0,20,256,8);
             }
           }
 
-          var dialog=new createjs.Text("","15px Geo","white")
+          var dialog=new createjs.Text("","15px Monotype Century","67151b")
           dialog.textAlign="center";
-          dialog.x=128;
-          dialog.y=32;
+          dialog.x=256;
+          dialog.y=280;
           //dialog.alpha=0;
 
-          var p=new Paesant(15,17,"Welcome to Prodo Island");
+          var p=new Paesant(50,180,"Welcome to Prodo Island");
 
-          var p=new Paesant(55,13,"Prodo Island is a nice place");
+          var p=new Paesant(100,180,"Prodo Island is a nice place");
 
-          var p=new Paesant(115,21,"What brings you to Prodo Island?");
+          var p=new Paesant(150,180,"What brings you to Prodo Island?");
 
           
 
@@ -222,6 +228,23 @@ rect(0,20,256,8);
 <textarea rows="4" cols="50">
 Enjoy the game.
 </textarea>
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<button onclick="myFunction()">POWER</button>
+
+<p id="demo">Generate Power</p>
+<script>
+function myFunction()
+{
+document.getElementById("demo").innerHTML=Math.random();
+}
+</script>
+
+</body>
+</html>
 
 </body>
 </html>

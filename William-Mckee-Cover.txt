@@ -4,6 +4,7 @@ Experienced with 3d engines since childhood. I've used the Unity Engine for over
 High skill in level design, UI, lighting and camera composition.
 and lighting setup. Ability to model, texture, and animate in an 3d enviromoent. Create and explore worlds.
 Knowlegage of Javascript, c#, and GIT. 
+
 Thank you,
 William Mckee
 

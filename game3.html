@@ -1,0 +1,227 @@
+<!DOCTYPE html><meta charset="UTF-8">
+<html>
+<body>
+<style>
+body
+{
+background-color:#b0c4de;
+}
+@import url(http://fonts.googleapis.com/css?family=Geo);
+</style>
+<h3 style="font-family:monospace;color:#b7a676;font-size:24px;text-align:center">Happy Kabuki World</h3>
+
+<div style="color:#1c212e">
+  <h3>This is a heading in a div element</h3>
+  <p>Click to move. Space to talk.</p>
+</div>
+
+
+
+<canvas id="myCanvas" width="1280" height="720" style="border:1px solid #c3c3c3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+<script type="text/javascript" src="http://code.createjs.com/createjs-2013.02.12.min.js"></script>
+<script>
+
+
+    var stage=new createjs.Stage("myCanvas");
+
+        var gameLogic={};
+        gameLogic.tick=update;
+        createjs.Ticker.setFPS(120);
+
+
+        var paesants=new createjs.Container();
+        var talker=-1;
+
+
+        function update(){
+            tinyGoblin.move();
+
+            for(var i=0;i<paesants.getNumChildren();i++)
+            {
+
+              if(Math.abs(paesants.getChildAt(i).x-tinyGoblin.x)<10 && Math.abs(paesants.getChildAt(i).y-tinyGoblin.y)<10)
+              {
+              paesants.getChildAt(i).canTalk(true);
+              talker=i;
+              }
+              else{
+              paesants.getChildAt(i).canTalk(false);
+              if (talker==i){talker=-1;}
+
+              }
+            }
+
+             if(keyMap.isDown(keyMap.spaceBar)&& talker!=-1)
+              {
+                console.log("talking");
+                paesants.getChildAt(talker).talk();
+              }
+        }
+
+
+
+   var keyMap =
+    {
+       _pressed: {},
+
+      spaceBar:32,
+      
+        isDown: function(keyCode)
+        {
+          return this._pressed[keyCode];
+        },
+  
+        onKeydown: function(event)
+        {
+          this._pressed[event.keyCode] = true;
+        },
+  
+        onKeyup: function(event)
+        {
+          this._pressed[event.keyCode] = false;
+        }
+    };
+
+    window.addEventListener('keyup', function(event) { keyMap.onKeyup(event); }, false);
+    window.addEventListener('keydown', function(event) { keyMap.onKeydown(event); }, false);
+
+        var ctx=new createjs.Shape();
+
+ctx.graphics.
+
+beginFill("#536188").
+rect(0,0,480,24).
+
+beginFill("#181032").
+rect(0,80,480,320).
+
+beginFill("#67151b").
+rect(0,10,64,4).
+
+beginFill("#67151b").
+rect(64,8,64,8).
+
+beginFill("#67151b").
+rect(100,12,5,12).
+
+beginFill("#1c212e").
+rect(0,12,480,6).
+
+beginFill("#c8d991").
+rect(0,20,256,8);
+
+    stage.addChild(ctx);
+
+        var tinyGoblin=new createjs.Shape();
+
+        tinyGoblin.graphics.beginFill("#bfa954").rect(0,0,16,32);
+        tinyGoblin.regX=tinyGoblin.regY=5;
+        
+        tinyGoblin.module=tinyGoblin.maxModule=2;
+        tinyGoblin.sx=tinyGoblin.sy=0;
+        tinyGoblin.x=10;
+        tinyGoblin.y=10;
+        tinyGoblin.tx=tinyGoblin.x;
+        tinyGoblin.tx=tinyGoblin.y;
+
+        tinyGoblin.move=function(){
+         if(Math.abs(this.x-this.tx)<20){
+         this.module=(Math.abs(this.x-this.tx)/20)*this.maxModule;
+         }
+         else
+         this.module=this.maxModule;
+
+                if(Math.abs(this.x-this.tx)>=0.1){
+                this.x+=this.module*this.sx;
+                this.y+=this.module*this.sy;
+              }
+              
+            }
+
+        getMotionDirection=function(e){
+
+           dialog.text="";
+           tinyGoblin.tx=e.stageX;
+           tinyGoblin.ty=e.stageY;
+           var l=Math.sqrt((tinyGoblin.tx- tinyGoblin.x)*
+                           (tinyGoblin.tx- tinyGoblin.x)+
+                           (tinyGoblin.ty- tinyGoblin.y)*
+                           (tinyGoblin.ty- tinyGoblin.y));
+           tinyGoblin.sx=(tinyGoblin.tx- tinyGoblin.x)/l;
+           tinyGoblin.sy=(tinyGoblin.ty- tinyGoblin.y)/l;
+
+          }
+
+
+
+          function Paesant(x,y,text){
+            this.model=new createjs.Shape();
+            this.model.graphics.beginStroke("black").beginFill("#bfa954").rect(0,0,5,10);
+            this.model.regX=2;
+            this.model.regY=5;
+            this.model.x=x;
+            this.model.y=y;
+            var text=text;
+
+            this.model.name="P";
+
+            this.model.talker=false;
+
+            paesants.addChild(this.model);
+            var that=this;
+
+            this.model.canTalk=function(v){
+              
+              if(v && !that.model.talker){
+                //paesants.removeChild(this.model);
+                that.model.clear;
+                that.model.graphics.beginStroke("red").beginFill("#bfa954").rect(0,0,5,10);
+              }
+              else if((!v && that.model.talker)){
+                that.model.clear
+                that.model.graphics.beginStroke("black").beginFill("#bfa954").rect(0,0,5,10);
+              }
+
+              that.model.talker=v;
+            }
+
+            this.model.talk=function(){
+              console.log(text);
+                dialog.text=text;
+               // dialog.alpha=1;
+                //createjs.Tween.get(dialog).wait(3000).to({alpha:0},2000);
+            }
+          }
+
+          var dialog=new createjs.Text("","15px Geo","white")
+          dialog.textAlign="center";
+          dialog.x=128;
+          dialog.y=32;
+          //dialog.alpha=0;
+
+          var p=new Paesant(15,17,"Welcome to Prodo Island");
+
+          var p=new Paesant(55,13,"Prodo Island is a nice place");
+
+          var p=new Paesant(115,21,"What brings you to Prodo Island?");
+
+          
+
+          stage.addChild(paesants,tinyGoblin,dialog);
+          stage.onMouseDown=getMotionDirection;
+
+        createjs.Ticker.addListener(stage);
+        createjs.Ticker.addListener(gameLogic);
+
+       
+
+</script>
+
+<textarea rows="4" cols="50">
+Enjoy the game.
+</textarea>
+
+</body>
+</html>

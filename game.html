@@ -12,7 +12,8 @@ margin-left:100px;
 </style>
 <div align=center>
 <img src="load14.jpg" width="199" height="100">
-<p><center>Created for the Game Prototype Challange 17. Created by William Mckee. </center>
+<p><center>The follow is the result of Game Prototype Challange 17 by William Mckee.</center>
+<p>The theme was Island and Entrapment.
 <style>
 body
 {
@@ -27,7 +28,13 @@ background-color:#b0c4de;
   <p>Stay awhile and experience a collection of the islands unique features.</p>
 </div>
 
+<script>
+function changeBackground(color) {
+   document.body.style.background = color;
+}
 
+<BODY onload="changeBackground('red');">
+</script>
 
 <canvas id="contain" width="480" height="320" style="border:1px solid #c3c3c3;">
 Your browser does not support the HTML5 canvas tag.
@@ -179,7 +186,7 @@ background-color:#b0c4de;
             }
           }
 
-          var dialog=new createjs.Text("","bold 15px Geo","white")
+          var dialog=new createjs.Text("","15px Geo","#b7a676")
           dialog.textAlign="center";
           dialog.x=128;
           dialog.y=32;
@@ -200,7 +207,7 @@ background-color:#b0c4de;
 </script>
 
 <textarea rows="4" cols="50">
-Enjoy the games. Web versions require 
+Enjoy the games. Web versions require unity player
 </textarea>
 
 </body>

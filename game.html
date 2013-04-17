@@ -4,7 +4,7 @@
 body
 {
 background-color:#b0c4de;
-margin-top:100px;
+margin-top:10px;
 margin-bottom:100px;
 margin-right:600px;
 margin-left:600px;
@@ -12,12 +12,228 @@ margin-left:600px;
 </style>
 <div align=center>
 <img src="load14.jpg" width="199" height="100">
+<p><center>Created for the Game Prototype Challange 17</center>
+<style>
+body
+{
+background-color:#b0c4de;
+}
+@import url(http://fonts.googleapis.com/css?family=Monotype Century);
+</style>
+<h3 style="font-family:monospace;color:#b7a676;font-size:24px;text-align:center">Prodo Island</h3>
 
-<p><h3 style="font-family:monospace;color:#b7a676;font-size:12px;text-align:center"><a href="http://brobeur.com/Prodo-Island-0-1.html"</a>Enter Prodo-Island-0-1
-<p><a href="http://brobeur.com/Prodo-Island-0-2.html"</a>Enter Prodo-Island-0-2
+<div style="color:#1c212e">
+  <h3>None esceape Prodo Island</h3>
+  <p>Stay awhile and experience a collection of the islands unique features.</p>
+</div>
+
+
+
+<canvas id="myCanvas" width="480" height="320" style="border:1px solid #c3c3c3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+<script type="text/javascript" src="http://code.createjs.com/createjs-2013.02.12.min.js"></script>
+<script>
+ 
+ 
+-     var stage=new createjs.Stage("myCanvas");
++    var stage=new createjs.Stage("myCanvas");
+ 
+         var gameLogic={};
+         gameLogic.tick=update;
+@@ -52,65 +52,33 @@ <h3 style="font-family:monospace;color:#b7a676;font-size:24px;text-align:center"
+ 
+               }
+             }
+-
+-             if(keyMap.isDown(keyMap.e)&& talker!=-1)
+-              {
+-                console.log("talking");
+-                paesants.getChildAt(talker).talk();
+-              }
+-        }
+-
+-
+-
+-   var keyMap = 
+-    {
+-       _pressed: {},
+-
+-      e:101,
+-      
+-        isDown: function(keyCode) 
+-        {
+-          return this._pressed[keyCode];
+-        },
+-  
+-        onKeydown: function(event) 
+-        {
+-          this._pressed[event.keyCode] = true;
+-        },
+-  
+-        onKeyup: function(event) 
+-        {
+-          this._pressed[event.keyCode] = false;
+         }
+-    };
+ 
+-    window.addEventListener('keyup', function(event) { keyMap.onKeyup(event); }, false);
+-    window.addEventListener('keydown', function(event) { keyMap.onKeydown(event); }, false);
+ 
+-         var ctx=new createjs.Shape();
++    var ctx=new createjs.Shape();
+ 
+-    ctx.graphics.
++    ctx.graphics.
+ 
+-    beginFill("#536188").
+-    rect(0,0,256,24).
++    beginFill("#536188").
++    rect(0,0,256,24).
+ 
+-    beginFill("#181032").
+-    rect(0,15,256,200).
++    beginFill("#181032").
++    rect(0,15,256,200).
+ 
+-    beginFill("#67151b").
+-    rect(0,10,64,4).
++    beginFill("#67151b").
++    rect(0,10,64,4).
+ 
+-    beginFill("#67151b").
+-    rect(64,8,64,8).
++    beginFill("#67151b").
++    rect(64,8,64,8).
+ 
+-    beginFill("#67151b").
+-    rect(100,12,5,12).
++    beginFill("#67151b").
++    rect(100,12,5,12).
+ 
+-    beginFill("#1c212e").
+-    rect(0,12,256,6).
++    beginFill("#1c212e").
++    rect(0,12,256,6).
+ 
+-    beginFill("#c8d991").
+-    rect(0,20,256,8);
++    beginFill("#c8d991").
++    rect(0,20,256,8);
+ 
+     stage.addChild(ctx);
+ 
+@@ -127,17 +95,17 @@ <h3 style="font-family:monospace;color:#b7a676;font-size:24px;text-align:center"
+         tinyGoblin.tx=tinyGoblin.y;
+ 
+         tinyGoblin.move=function(){
+-            if(Math.abs(this.x-this.tx)<20){
+-              this.module=(Math.abs(this.x-this.tx)/20)*this.maxModule;
+-            }
+-            else
+-              this.module=this.maxModule;
++            if(Math.abs(this.x-this.tx)<20){
++              this.module=(Math.abs(this.x-this.tx)/20)*this.maxModule;
++            }
++            else
++              this.module=this.maxModule;
+ 
+                 if(Math.abs(this.x-this.tx)>=0.1){
+                 this.x+=this.module*this.sx;
+                 this.y+=this.module*this.sy;
+               }
+-                
++                
+             }
+ 
+         getMotionDirection=function(e){
+@@ -157,6 +125,7 @@ <h3 style="font-family:monospace;color:#b7a676;font-size:24px;text-align:center"
+ 
+ 
+           function Paesant(x,y,text){
++
+             this.model=new createjs.Shape();
+             this.model.graphics.beginStroke("black").beginFill("#bfa954").rect(0,0,5,10);
+             this.model.regX=2;
+@@ -164,35 +133,25 @@ <h3 style="font-family:monospace;color:#b7a676;font-size:24px;text-align:center"
+             this.model.x=x;
+             this.model.y=y;
+             var text=text;
+-
+             this.model.name="P";
+-
+             this.model.talker=false;
+-
+             paesants.addChild(this.model);
+             var that=this;
+ 
+-            this.model.canTalk=function(v){
+-              
++            this.model.canTalk=function(v){        
+               if(v && !that.model.talker){
+                 //paesants.removeChild(this.model);
+                 that.model.clear;
+                 that.model.graphics.beginStroke("red").beginFill("#bfa954").rect(0,0,5,10);
++                dialog.text=text;
+               }
+               else if((!v && that.model.talker)){
+                 that.model.clear
+                 that.model.graphics.beginStroke("black").beginFill("#bfa954").rect(0,0,5,10);
++                 dialog.text="";
+               }
+-
+               that.model.talker=v;
+             }
+-
+-            this.model.talk=function(){
+-              console.log(text);
+-                dialog.text=text;
+-               // dialog.alpha=1;
+-                //createjs.Tween.get(dialog).wait(3000).to({alpha:0},2000);
+-            }
+           }
+ 
+           var dialog=new createjs.Text("","bold 15px Geo","white")
+@@ -201,21 +160,17 @@ <h3 style="font-family:monospace;color:#b7a676;font-size:24px;text-align:center"
+           dialog.y=32;
+           //dialog.alpha=0;
+ 
+-          var p=new Paesant(15,17,"Hello!");
+-
+-          var p=new Paesant(55,13,"How are you?!?");
+-
+-          var p=new Paesant(115,21,"I HATE MONDAYS!!!");
++          var p1=new Paesant(15,17,"Hello!");
++          var p2=new Paesant(55,13,"How are you?!?");
++          var p3=new Paesant(115,21,"I HATE MONDAYS!!!");
+ 
+           
+ 
+-          stage.addChild(paesants,tinyGoblin,dialog);
+-          stage.onMouseDown=getMotionDirection;
++        stage.addChild(paesants,tinyGoblin,dialog);
++        stage.onMouseDown=getMotionDirection;
+ 
+         createjs.Ticker.addListener(stage);
+-        createjs.Ticker.addListener(gameLogic);
+-
+-       
++        createjs.Ticker.addListener(gameLogic);       
+ 
+ </script>
+ 
+<p><h3 style="font-family:monospace;color:#b7a676;font-size:12px;text-align:center"><a href="http://brobeur.com/Prodo-Island-0-1"</a>Enter Prodo-Island-0-1
+<p><a href="http://brobeur.com/prodo-island-0-2"</a>Enter Prodo-Island-0-2
+<p><a href="http://brobeur.com/prodo-island-0-3"</a>Enter Prodo-Island-0-3
+
 <p><a href="http://brobeur.com/game2"</a>Enter Game Two
 <p><a href="http://brobeur.com/game3"</a>Enter Game Three
 
+
+<p>Other Material
+
+
+<p><a href="https://github.com/artctrl/HTML5-Tiny"</a>Screenshots
 
 <p><a href="https://github.com/artctrl/HTML5-Tiny"</a>Source Code on GITHUB
 

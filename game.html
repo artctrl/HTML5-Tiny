@@ -5,15 +5,24 @@ body
 {
 background-color:#b0c4de;
 margin-top:10px;
-margin-bottom:900px;
-margin-right:600px;
-margin-left:100px;
+margin-bottom:10px;
+margin-right:700px;
+margin-left:300px;
 }
 </style>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<link href='http://fonts.googleapis.com/css?family=Six+Caps' rel='stylesheet' type='text/css'>
+
 <div align=center>
-<img src="load14.jpg" width="199" height="100">
-<p><center>The following is the result of Game Prototype Challange 17 by William Mckee.</center>
-<p>The theme is Island and Entrapment
+<img src="brobeurlogo2.png" width="230" height="60">
+<p><center>The following is the result of Game Prototype Challange 17 by William Mckee. The theme is Island and Entrapment
 <style>
 body
 {
@@ -21,22 +30,61 @@ background-color:#b0c4de;
 }
 @import url(http://fonts.googleapis.com/css?family=Monotype Century);
 </style>
-<h3 style="font-family:monospace;color:#536188;font-size:24px;text-align:center">Prodo Island</h3>
+<aside>
+<img src="load14.jpg" width="199" height="100">
+<div margin-right:10;>
+ 
+<h3 style="font-family:Monotype Century;color:#536188;font-size:24px;text-align:center">Prodo Island</h3>
+</div>
 
-<div style="color:#1c212e">
+<div margin-left:1200px;>
+  <h2>Games</h2>
+  <nav>
+    <ul>
+      <h3 style="font-family:monospace;color:#b7a676;font-size:12px;text-align:left">
+<p><a href="http://brobeur.com/Prodo-Island-0-1">Play Prodo-Island-0-1</a>
+<p><a href="http://brobeur.com/prodo-island-0-2">Play Prodo-Island-0-2</a>
+<p><a href="http://brobeur.com/prodo-island-0-3">Play Prodo-Island-0-3</a>
+<p><a href="http://brobeur.com/prodo-island-0-3.rar">Download Prodo-Island-0-3 - Windows</a>
+<p><a href="http://brobeur.com/game3">Enter Game Three</a>
+
+</div>
+<div margin-left:300px;>
+
+<h2>Extras</h2>
+
+<p><a href="http://brobeur.com/screenshots">Screenshots</a>
+
+<p><a href="https://github.com/artctrl/HTML5-Tiny">Source Code on GITHUB</a>
+</div>
+  <h2>Links</h2>
+
+<p><a href="http://watagaming.comuf.com/">Watagaming</a>
+<p><a href="http://brobeur.com/">BroBeur Studios</a>
+<p><a href="http://artcontrol.me/">Artcontrol</a>
+<p><a href="http://gameprototypechallenge.com/">Game prototype challenge</a>
+<p><a href="http://gameprototypechallenge.com/archive.php?version=17">GPc17</a></p></h3>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+</nav>
+</aside>
+<title>This has a nice outline</title>
+<style>	
+article, aside, nav {display: block;}
+article, aside {float: left;}
+article {width: 500px;}
+nav {width: 250px;}
+</style>
+</head>
+<body>
+
+<div margin-left:200px>
   <h3>No escape</h3>
   <p>Stay awhile and experience a collection of the islands unique features.</p>
 </div>
 
-<script>
-function changeBackground(color) {
-   document.body.style.background = color;
-}
 
-<BODY onload="changeBackground('red');">
-</script>
-
-<canvas id="contain" width="480" height="320" style="border:1px solid #c3c3c3;">
+<canvas id="contain" width="480" height="250" style="border:1px solid #c3c3c3;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 <script type="text/javascript" src="http://code.createjs.com/createjs-2013.02.12.min.js"></script>
@@ -50,12 +98,11 @@ background-color:#b0c4de;
 }
 @import url(http://fonts.googleapis.com/css?family=Geo);
 </style>
-<h3 style="font-family:monospace;color:#536188;font-size:24px;text-align:center">trailer</h3>
-<iframe width="560" height="315" src="http://www.youtube.com/embed/RJahK2boXrU" frameborder="0" allowfullscreen></iframe>
+<p><iframe width="560" height="315" src="http://www.youtube.com/embed/RJahK2boXrU" frameborder="0" allowfullscreen></iframe>
 <script type="text/javascript" src="http://code.createjs.com/createjs-2013.02.12.min.js"></script>
 <script>
 
-
+	var x = Math.floor((Math.random()*100)+1);
     var stage=new createjs.Stage("contain");
 
         var gameLogic={};
@@ -98,19 +145,19 @@ background-color:#b0c4de;
     rect(0,128,480,128).
 
     beginFill("#67151b").
-    rect(0,10,64,4).
+    rect(0,30,300,50).
 
     beginFill("#67151b").
     rect(64,8,64,8).
 
     beginFill("#67151b").
-    rect(100,12,5,12).
+    rect(100,200,50,50).
 
     beginFill("#1c212e").
     rect(0,300,256,6).
 
     beginFill("#c8d991").
-    rect(0,250,256,8);
+    rect(0,400,256,8);
 
     stage.addChild(ctx);
 
@@ -188,14 +235,16 @@ background-color:#b0c4de;
 
           var dialog=new createjs.Text("","15px Geo","#b7a676")
           dialog.textAlign="center";
-          dialog.x=128;
-          dialog.y=32;
+          dialog.x=150;
+          dialog.y=220;
           //dialog.alpha=0;
 
           var p1=new Paesant(15,17,"Welcome to Prodo Island!");
           var p2=new Paesant(55,13,"This place sure is good");
           var p3=new Paesant(115,21,"Here for the tour?");
-
+		  var p4=new Paesant(400, 50,"Oh, you're an interesting one");
+		  var p5=new Paesant(200, 100,"The guy over there is funny looking");
+		
           
 
         stage.addChild(paesants,tinyGoblin,dialog);
@@ -206,32 +255,9 @@ background-color:#b0c4de;
 
 </script>
 
-<textarea rows="4" cols="50">
-Enjoy the games. Web versions require unity player
-</textarea>
 
-</body>
-</html>
-<h3 style="font-family:monospace;color:#b7a676;font-size:12px;text-align:center">
-<p><a href="http://brobeur.com/Prodo-Island-0-1"</a>Play Prodo-Island-0-1
-<p><a href="http://brobeur.com/prodo-island-0-2"</a>Play Prodo-Island-0-2
-<p><a href="http://brobeur.com/prodo-island-0-3"</a>Play Prodo-Island-0-3
-<p><a href="http://brobeur.com/prodo-island-0-3.rar"</a>Download Prodo-Island-0-3 - Windows
-
-<p><a href="http://brobeur.com/game3"</a>Enter Game Three
+<p>Enjoy the games. Web versions require unity player
 
 
-
-
-<p><a href="http://brobeur.com/screenshots"</a>Screenshots
-
-<p><a href="https://github.com/artctrl/HTML5-Tiny"</a>Source Code on GITHUB
-
-<P>other links:
-<p><a href="http://watagaming.comuf.com/"</a>Watagaming
-<p><a href="http://brobeur.com/"</a>BroBeur Studios
-<p><a href="http://artcontrol.me/"</a>Artcontrol
-<p><a href="http://gameprototypechallenge.com/"</a>Game prototype challenge
-<p><a href="http://gameprototypechallenge.com/archive.php?version=17"</a>GPc17
 </body>
 </html>
